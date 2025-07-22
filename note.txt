@@ -1,0 +1,24 @@
+A database is used to store and manage data. 
+Types 
+1. Relational Database (SQL) : Used to store data in a structured format. Rows and columns (Tables). 
+2. Non-relational Database (No-SQL) : Store data in flexible format (documents and collections). 
+
+
+MVC 
+
+Model : Where you define the structure of the database 
+View : What the user sees 
+Controller : Where the logic is written 
+
+HTTP Methods 
+PUT 
+POST 
+GET 
+DELETE 
+
+CRUD Operation 
+Create 
+Read 
+Update 
+Delete 
+
