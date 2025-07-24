@@ -7,7 +7,7 @@ router.put('/editpost/:id', edit1Post)
 
 router.post('/newpost',authorize(["Admin", "User"]) ,createPost)
 
-router.get('/allpost',authorize(["Admin", "User"]), getAllPosts)
+router.get('/allpost', getAllPosts)
 
 router.delete('/:id', authorize(["Admin", "User"]), de1Post)
 
