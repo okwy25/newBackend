@@ -1,6 +1,7 @@
 const user = require('../model/user');
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const sendEmail = require('../sendEmail');
 
 const register = async(req,res)=>{
     try {
@@ -13,6 +14,24 @@ const register = async(req,res)=>{
         }
 
         const hashedPassowrd = await bcrypt.hash(password, 10)
+        const welcomeMail =`
+   <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #bfdbe4ff; padding: 20px; border-radius: 5px;">
+      <h1><center>Welcome to Our Platform </center> <img scr="https://res.cloudinary.com/dh8dtvvy6/image/upload/v1752755027/Blog_pictures/vdktuipzojruyrasa9hw.jpg" width="70px"/></h1>
+      <p>Hi ${fullname},</p>\n\n
+      <p>Welcome to our platform! We're excited to have you on board.\n\n</p>
+      <ol>
+        <li>Explore our features and services.</li>
+        <li>Stay updated with our latest news.</li>
+        <li>Feel free</li>
+        </ol>
+        <p>Best regards,\n\n</p>
+        <p>The Team</p>
+        </p> contact us at:< href="mailto:${process.env.EMAIL_USER}
+        
+    <div>
+    `;
+
+    await sendEmail(email, "Welcome to Our Platform", welcomeMail);
 
         const newUser = await user.create({
             fullname,

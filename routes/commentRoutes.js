@@ -4,7 +4,7 @@ const {createComment, getAllComments, de1Comment, edit1Comment}= require('../con
 
 
 
-router.post('/', createComment)
+router.post('/:id', createComment)
 
 router.get('/allcomment', getAllComments)
 
