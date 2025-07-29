@@ -5,7 +5,7 @@ const authorize = require('../middleware/authorize');
 
 router.put('/editpost/:id', edit1Post)
 
-router.post('/newpost',authorize(["Admin", "User"]) ,createPost)
+router.post('/',authorize(["Admin", "User"]) ,createPost)
 
 router.get('/allpost', getAllPosts)
 

@@ -27,7 +27,10 @@ const createPost = async (req,res)=>{
 const getAllPosts = async(req,res)=>{
     
     try {
-        let posts = await post.find();
+        let posts = await post.find().populate({
+            path: 'author',
+            select: 'fullname'
+        });
 
         if(!posts) return res.status(404).json({message:"No posts found"})
 

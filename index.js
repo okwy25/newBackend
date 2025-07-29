@@ -6,12 +6,14 @@ const cors = require('cors');
 const postRoutes = require('./routes/postRoutes')
 const userRoute = require('./routes/userRoutes')
 const CommentRoutes = require('./routes/commentRoutes')
+const cookieParser = require('cookie-parser');
 // const { createComment, getAllComments, de1Comment, edit1Comment} = require('./controller/commentController');
 dotenv.config()
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+app.use(cookieParser());
 
 app.use(cors({
     origin: 'http://localhost:5173',
