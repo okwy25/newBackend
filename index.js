@@ -26,11 +26,6 @@ mongoose.connect(process.env.MONGODB_URL)
 
 app.use('/user', userRoute)
 
-app.use(cors ({
-    origin: 'http://localhost:5173',
-    credentials: true,
-}))
-
 
 //for posts 
 

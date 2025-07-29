@@ -68,7 +68,15 @@ const login = async(req,res)=>{
             {id:checkEmail._id, role: checkEmail.role},
             process.env.SECRETKEY,
             {expiresIn:'1h'} 
-        )
+        );
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: false, 
+            sameSite: 'lax',
+            maxAge: 3 * 60 * 60 * 1000 
+        });
+        
 
         res.status(200).json({message:"Login Sucessful", token});
 
