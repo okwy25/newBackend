@@ -7,7 +7,7 @@ router.post('/', register);
 
 router.post('/login', login)
 
-router.get('/allusers', authorize(["Admin"]), getAllUsers)
+router.get('/allusers', getAllUsers)
 
 router.delete('/del/:id',authorize(["Admin"]), delUser)
 
